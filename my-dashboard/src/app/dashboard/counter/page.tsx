@@ -1,6 +1,6 @@
 export default function CounterPage() {
   return (
-    <div>Counter page</div>
+    <h2>Counter page</h2>
   )
 }
 
