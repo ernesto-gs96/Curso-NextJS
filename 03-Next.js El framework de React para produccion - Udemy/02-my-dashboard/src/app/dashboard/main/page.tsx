@@ -1,4 +1,4 @@
-import { SimpleWidget } from "@/components";
+import { SimpleWidget, WidegetGrid } from "@/components";
 
 
 export const metadata = {
@@ -11,10 +11,7 @@ export default function MainPage() {
     <div className="text-black p-2">
       <h1 className="mt-2 text-3xl">Main page</h1>
       <span className="text-xl">Informacion general</span>
-
-      <div className="flex flex-wrap p-2 justify-center">
-        <SimpleWidget/>
-      </div>
+      <WidegetGrid/>
     </div>
   );
 }
