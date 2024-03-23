@@ -11,7 +11,7 @@ export default async function NamePage() {
     return (
         <div className="felx flex-col">
             <span className="text-5xl my-2">Pokemon favoritos <small className="text-blue-500">Global State</small></span>
-            {/* <PokemonGrid pokemons={pokemons} /> */}
+            {/* <PokemonGrid pokemons={} /> */}
         </div>
     );
 }
