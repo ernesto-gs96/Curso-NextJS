@@ -1,4 +1,3 @@
-import { PokemonGrid, PokemonGridClient, PokemonsResponse, SimplePokemon } from "@/pokemons";
 import { FavoritePokemons } from "@/pokemons/components/FavoritePokemons";
 import { Metadata } from "next";
 
