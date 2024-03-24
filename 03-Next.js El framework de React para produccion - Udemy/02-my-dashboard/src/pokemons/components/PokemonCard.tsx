@@ -20,7 +20,6 @@ export const PokemonCard = ({pokemon}: Props) => {
     const onToggle = () => {
         dispacth( toggleFavorite(pokemon) );
     }
-    
 
     return (
         <div className="mx-auto right-0 mt-2 w-60">

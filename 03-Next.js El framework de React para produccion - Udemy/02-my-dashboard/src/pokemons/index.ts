@@ -5,3 +5,4 @@ export type {Pokemon} from './interfaces/pokemon';
 
 // Componentes
 export {PokemonGrid} from './components/PokemonGrid';
+export {PokemonGridClient} from './components/PokemonGridClient';
