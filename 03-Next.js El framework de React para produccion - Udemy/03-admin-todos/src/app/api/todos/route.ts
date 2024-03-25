@@ -33,7 +33,7 @@ const postSchema = yup.object({
 export async function POST(request: Request) {
     try {
         // TODO: Mejorar para mandar error si envio atributos extras
-        const { description, complete } = await postSchema.validate( await request.json() );
+        const { description, complete, ...rest } = await postSchema.validate( await request.json() );
         const todo = await prisma.todo.create({ data: { description, complete } });
         return NextResponse.json(todo);
     } catch (error) {
