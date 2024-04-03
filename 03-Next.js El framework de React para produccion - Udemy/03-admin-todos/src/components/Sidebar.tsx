@@ -3,10 +3,12 @@ import Link from "next/link"
 
 import { CiBookmarkCheck, CiLogout } from 'react-icons/ci';
 import { SidebarItem } from "./SidebarItem";
+import { IoCalendarOutline, IoCheckboxOutline, IoListOutline } from "react-icons/io5";
 
-const sidebarItems = [
-    { href: "/dashboard", icono: <CiBookmarkCheck size={30} />, texto: "Dasboard" },
-    { href: "/dashboard/rest-todos", icono: <CiBookmarkCheck size={30} />, texto: "Rest todos" },
+const menuItems = [
+    { path: "/dashboard", icono: <IoCalendarOutline size={30} />, title: "Dasboard" },
+    { path: "/dashboard/rest-todos", icono: <IoCheckboxOutline size={30} />, title: "Rest TODOS" },
+    { path: "/dashboard/server-todos", icono: <IoListOutline size={30} />, title: "Server Actions" },
 ]
 
 export const Sidebar = () => {
@@ -34,14 +36,15 @@ export const Sidebar = () => {
                             className="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28"
                             width={100}
                             height={100}
+                            priority
                         />
                         <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">Cynthia J. Watts</h5>
                         <span className="hidden text-gray-400 lg:block">Admin</span>
                     </div>
 
                     <ul className="space-y-2 tracking-wide mt-8">
-                        {sidebarItems.map( (item,index) => 
-                            <SidebarItem key={item.href+index} {...item} />
+                        {menuItems.map( (item,index) => 
+                            <SidebarItem key={item.path+index} {...item} />
                         )}
                     </ul>
                 </div>

@@ -1,24 +1,29 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation"
 
 interface Props {
-    href: string,
-    icono: JSX.Element,
-    texto: string
+    path: string,
+    icono: React.ReactNode,
+    title: string
 }
 
-{/* Active className: text-white bg-gradient-to-r from-sky-600 to-cyan-400 */}
-export const SidebarItem = ({href, icono, texto}: Props) => {
+export const SidebarItem = ({path, icono, title}: Props) => {
 
-    const path  = usePathname();
+    const pathName  = usePathname();
 
+    {/* Active className: text-white bg-gradient-to-r from-sky-600 to-cyan-400 */}
     return (
         <li>
-            <a href={href} className={`relative px-4 py-3 flex items-center space-x-4 rounded-xl ${path===href && "text-white bg-gradient-to-r from-sky-600 to-cyan-400"} `}>
+            <Link href={path} className={`
+                px-4 py-3 flex items-center space-x-4 rounded-ml group
+                hover:bg-gradient-to-r hover:bg-sky-600 hover:text-white
+                ${pathName===path && "text-white bg-gradient-to-r from-sky-600 to-cyan-400"} 
+            `}>
                 {icono}
-                <span className="-mr-1 font-medium">{texto}</span>
-            </a>
+                <span className="group-hover:text-white-700">{title}</span>
+            </Link>
         </li>
     )
 }
