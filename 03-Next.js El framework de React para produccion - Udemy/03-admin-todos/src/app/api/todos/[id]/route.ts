@@ -1,4 +1,4 @@
-import prisma from '@/app/lib/prima';
+import prisma from '@/lib/prima';
 import { Todo } from '@prisma/client';
 import { NextResponse, NextRequest } from 'next/server';
 import { todo } from 'node:test';
