@@ -28,6 +28,7 @@ export const TabBar = ( { currentTab =  1, tabOptions = [1, 2, 3, 4] }: Props) =
                 tabOptions.map( tab => (
                     <div key={tab}>
                         <input
+                            title={"Tab " + tab}
                             checked={ selected === tab }
                             onChange={() => {}}
                             type="radio" 
