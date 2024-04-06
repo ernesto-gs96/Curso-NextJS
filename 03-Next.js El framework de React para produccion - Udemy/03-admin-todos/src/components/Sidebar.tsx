@@ -3,12 +3,13 @@ import Link from "next/link"
 
 import { CiBookmarkCheck, CiLogout } from 'react-icons/ci';
 import { SidebarItem } from "./SidebarItem";
-import { IoCalendarOutline, IoCheckboxOutline, IoListOutline } from "react-icons/io5";
+import { IoCalendarOutline, IoCheckboxOutline, IoCodeWorkingOutline, IoListOutline } from "react-icons/io5";
 
 const menuItems = [
     { path: "/dashboard", icono: <IoCalendarOutline size={30} />, title: "Dasboard" },
     { path: "/dashboard/rest-todos", icono: <IoCheckboxOutline size={30} />, title: "Rest TODOS" },
     { path: "/dashboard/server-todos", icono: <IoListOutline size={30} />, title: "Server Actions" },
+    { path: "/dashboard/cookies", icono: <IoCodeWorkingOutline size={30} />, title: "Cookies" },
 ]
 
 export const Sidebar = () => {
