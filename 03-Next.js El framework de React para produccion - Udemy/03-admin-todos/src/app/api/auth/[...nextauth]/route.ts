@@ -32,6 +32,10 @@ export const authOptions:NextAuthOptions = {
 
         const dbUser = await prisma.user.findUnique({ where: { email: token.email ?? 'no-email' } });
 
+        if (dbUser?.isActive === false) {
+          throw Error('Usuario no esta activo');
+        }
+
         token.roles = dbUser?.roles ?? ['no-roles'];
         token.id = dbUser?.id ?? 'no-uuid';
 
