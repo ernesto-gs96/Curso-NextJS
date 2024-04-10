@@ -22,6 +22,7 @@ export const Sidebar = async () => {
     const session = await getServerSession(authOptions);
     const name = session?.user?.name ?? 'Not name';
     const image = session?.user?.image ?? "https://tailus.io/sources/blocks/stats-cards/preview/images/second_user.webp";
+    const rol = session?.user?.roles ?? ['client'];
 
 
     return (
@@ -50,7 +51,7 @@ export const Sidebar = async () => {
                         priority
                     />
                     <h5 className="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">{name}</h5>
-                    <span className="hidden text-gray-400 lg:block">Admin</span>
+                    <span className="hidden text-gray-400 lg:block capitalize">{ rol.join(',') }</span>
                 </div>
 
                 <ul className="space-y-2 tracking-wide mt-8">
