@@ -17,7 +17,7 @@ export const SidebarItem = ({path, icono, title}: Props) => {
     return (
         <li>
             <Link href={path} className={`
-                px-4 py-3 flex items-center space-x-4 rounded-ml group
+                px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group
                 hover:bg-gradient-to-r hover:bg-sky-600 hover:text-white
                 ${pathName===path && "text-white bg-gradient-to-r from-sky-600 to-cyan-400"} 
             `}>
