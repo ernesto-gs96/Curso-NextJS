@@ -1,3 +1,4 @@
+import { getUserSessionServer } from "@/auth/actions/auth-actions";
 import prisma from "@/lib/prima";
 import { NextResponse, NextRequest } from "next/server";
 import * as yup from 'yup';
@@ -31,10 +32,16 @@ const postSchema = yup.object({
 })
 
 export async function POST(request: Request) {
+
+    const user = await getUserSessionServer();
+    if ( !user ) {
+        return NextResponse.json('No autorizado',{ status: 401 });
+    }
+
     try {
         // TODO: Mejorar para mandar error si envio atributos extras
         const { description, complete, ...rest } = await postSchema.validate( await request.json() );
-        const todo = await prisma.todo.create({ data: { description, complete } });
+        const todo = await prisma.todo.create({ data: { description, complete, userId: user.id } });
         return NextResponse.json(todo);
     } catch (error) {
         return NextResponse.json( error, { status: 400 } );
@@ -42,8 +49,12 @@ export async function POST(request: Request) {
 }
 
 export async function DELETE(request: Request) {
+    const user = await getUserSessionServer();
+    if ( !user ) {
+        return NextResponse.json('No autorizado',{ status: 401 });
+    }
     try {
-        const todo = await prisma.todo.deleteMany({ where: { complete: true } });
+        const todo = await prisma.todo.deleteMany({ where: { complete: true, userId: user.id } });
         return NextResponse.json('Borrados');
     } catch (error) {
         return NextResponse.json( error, { status: 400 } );

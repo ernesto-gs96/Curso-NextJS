@@ -17,9 +17,10 @@ export const NewTodo = () => {
         e.preventDefault();
         if ( description.length  === 0 ) return;
         // const createTodo = await todosApi.createTodo( description );
-        await addTodo( description );
+        // await addTodo( description );
+        await todosApi.createTodo(description);
         setDescription('')
-        // router.refresh();
+        router.refresh();
     }
 
     // const deleteCompleted = async() => {
